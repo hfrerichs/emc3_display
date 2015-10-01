@@ -1,0 +1,56 @@
+#!/bin/sh
+
+BASE_DIR=$(whiptail --title "Simulation directory" --inputbox "What is the base directory for EMC3-EIRENE simulations (relative to $HOME)? Simulation results are expected to be organized in subdirectories MACHINE/CONFIGURATION/CASE/RESULT, e.g. DIII-D/160884_5000ms_2fluid/nin_23/iteration42.\nMACHINE/CONFIGURATION: defines the geometry\nCASE:   defines a specific set of input parameters\nRESULT: allows to track several (sets of) iterations" 15 60 modeling/edge_transport 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+GEOMETRY_DIR=$(whiptail --title "Magnetic configuration" --inputbox "What is the name of the directory that contains the geometry related files for each magnetic configuration (in MACHINE/CONFIGURATION)?" 10 60 geometry 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+GRID_DATA_FILE=$(whiptail --title "Magnetic configuration" --inputbox "What is the filename of the computational grid?" 10 60 grid3D.dat 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+GRID_INFO_FILE=$(whiptail --title "Magnetic configuration" --inputbox "What is the filename of the grid layout definition?" 10 60 input.geo 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+PHYSICAL_CELL_DATA_FILE=$(whiptail --title "Plasma and neutral gas cells" --inputbox "What is the filename of the plasma and neutral gas cell definitions?" 10 60 CELL_GEO 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+RUN_EXEC_DIR=$(whiptail --title "Simulation run directory" --inputbox "What is the name of directory used for simulation runs (in MACHINE/CONFIGURATION/CASE)? This directory will contain the input files for each case." 10 60 run 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+CASE_INFO_FILE=$(whiptail --title "Case information file" --inputbox "What is the name of the file for the user parameters and boundary conditions?" 10 60 input.par 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+EMC3_OUTPUT_DIR=$(whiptail --title "EMC3 output directory" --inputbox "What is the name of directory with output from EMC3 (in MACHINE/CONFIGURATION/CASE/RESULT)?" 10 60 EMC3_OUTPUT 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+EIRENE_OUTPUT_DIR=$(whiptail --title "EIRENE output directory" --inputbox "What is the name of directory with output from EIRENE (in MACHINE/CONFIGURATION/CASE/RESULT)?" 10 60 EIRENE_OUTPUT 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+POSTPROC_DIR=$(whiptail --title "Post-processing output directory" --inputbox "What is the name of directory with post-processing output (in MACHINE/CONFIGURATION/CASE/RESULT)?" 10 60 POST_PROC 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
+
+rm -f config
+touch config
+echo "export sim_dir=$BASE_DIR"					>> config
+echo "export geometry_dir=$GEOMETRY_DIR"			>> config
+echo "export grid_info_file=$GRID_INFO_FILE"			>> config
+echo "export grid_data_file=$GRID_DATA_FILE"			>> config
+echo "export physical_cell_data_file=$PHYSICAL_CELL_DATA_FILE"	>> config
+echo "export run_exec_dir=$RUN_EXEC_DIR"			>> config
+echo "export case_info_dir=$CASE_INFO_DIR"			>> config
+echo "export emc3_output_dir=$EMC3_OUTPUT_DIR"			>> config
+echo "export eirene_output_dir=$EIRENE_OUTPUT_DIR"		>> config
+echo "export postproc_dir=$POSTPROC_DIR"			>> config
+echo "export diagnostics_dir=$POSTPROC_DIR"			>> config
