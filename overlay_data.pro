@@ -3,7 +3,7 @@
 ; date:		Aug 17th, 2007
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ; description:	User interface to select data for overlaying
 ;		(poincare plot, contour line, ...)

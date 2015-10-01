@@ -3,7 +3,7 @@
 ; date:		Jul 17th, 2007
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ; description:	provides loading data routines
 ;-----------------------------------------------------------------------

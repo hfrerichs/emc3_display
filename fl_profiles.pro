@@ -3,7 +3,7 @@
 ; date:		Apr 03th, 2008
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ; description:	fieldline profiles
 ;-----------------------------------------------------------------------

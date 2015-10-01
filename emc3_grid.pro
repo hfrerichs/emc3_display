@@ -3,7 +3,7 @@
 ; date:		Jul 10th, 2007
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ; description:	provides routines to read and plot the emc3 grid for a
 ;		selected shot

@@ -3,7 +3,7 @@
 ; date:		Aug 20th, 2007
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ; description:	plotting deposition data routines
 ;

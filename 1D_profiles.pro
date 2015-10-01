@@ -3,7 +3,7 @@
 ; date:		Jan 18th, 2011
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ; description:	provides processing and plotting routines for 1D profiles
 ;-----------------------------------------------------------------------

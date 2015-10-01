@@ -2,7 +2,7 @@
 ; program:	emc3_display
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ;-----------------------------------------------------------------------
 

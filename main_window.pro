@@ -3,7 +3,7 @@
 ; date:		Jul 10th, 2007
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ; description:	main window of user interface
 ;

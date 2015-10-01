@@ -3,7 +3,7 @@
 ; date:		Apr 03rd, 2008
 ;
 ; author:	Heinke Frerichs
-; email:	h.frerichs@fz-juelich.de
+; email:	hfrerichs@wisc.edu
 ;
 ; description:	user interface for plot settings
 ;-----------------------------------------------------------------------
