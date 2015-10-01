@@ -15,15 +15,10 @@ How to install the progam:
     directory), so either add MY_DIR to the PATH environment variable or
     link emc3_display.sh to some directory in $PATH.
 
-3.) The default directory is $HOME/sandbox/emc3_display. If you have
-    chosen another directory, replace
-    EMC3_DISPLAY_DIR=$HOME/sandbox/emc3_display
-    with
-    EMC3_DISPLAY_DIR=MY_DIR
-    in emc3_display.sh, so that IDL will find the program files.
-
-4.) The default base directory for simulations is
+3.) The default base directory for simulations is
     $HOME/modeling/edge_transport
-    A differing directory name can be set in $EMC3_DISPLAY_DIR/config by
-    the sim_dir variable. The expected simulation directory structure is:
-    $HOME/$sim_dir/MACHINE_NAME/CONFIGURATION_NAME/CASE_NAME/RUN_NAME
+    A differing directory name can be set in the file "config" by
+    the sim_dir variable. The expected structure in the simulation directory is:
+    MACHINE_NAME/CONFIGURATION_NAME/CASE_NAME/RUN_NAME
+    e.g.
+    DIII-D/160884_5000ms_2fluid/nin_23/iteration42

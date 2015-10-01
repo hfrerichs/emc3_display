@@ -3,7 +3,9 @@
 #=======================================================================
 # path to emc3_display files
 
-EMC3_DISPLAY_DIR=~/tools/emc3_display
+SCRIPT=$(readlink -f "$0")
+
+EMC3_DISPLAY_DIR=$(dirname "$SCRIPT")
 #=======================================================================
 
 
