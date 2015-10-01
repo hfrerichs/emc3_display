@@ -1,0 +1,29 @@
+=======================================================================
+emc3_display:	an IDL tool for displaying EMC3-EIRENE results
+
+by Heinke Frerichs, h.frerichs@fz-juelich.de
+=======================================================================
+
+
+How to install the progam:
+
+1.) Copy/unpack all program files to a directory of your choice. This
+    directory is called MY_DIR for later reference.
+
+2.) You might want to run emc3_display from any directory (e.g. because
+    emc3_display will automatically select the data from the local
+    directory), so either add MY_DIR to the PATH environment variable or
+    link emc3_display.sh to some directory in $PATH.
+
+3.) The default directory is $HOME/sandbox/emc3_display. If you have
+    chosen another directory, replace
+    EMC3_DISPLAY_DIR=$HOME/sandbox/emc3_display
+    with
+    EMC3_DISPLAY_DIR=MY_DIR
+    in emc3_display.sh, so that IDL will find the program files.
+
+4.) The default base directory for simulations is
+    $HOME/modeling/edge_transport
+    A differing directory name can be set in $EMC3_DISPLAY_DIR/config by
+    the sim_dir variable. The expected simulation directory structure is:
+    $HOME/$sim_dir/MACHINE_NAME/CONFIGURATION_NAME/CASE_NAME/RUN_NAME

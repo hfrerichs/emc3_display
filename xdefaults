@@ -1,0 +1,24 @@
+Idl*emc3_display*frame_title*background:	White
+Idl*emc3_display*frame_title*foreground:	DarkBlue
+Idl*emc3_display*select_run_base*background:	DarkGray
+Idl*emc3_display*select_run_base*foreground:	DarkBlue
+Idl*emc3_display*diff_base*background:	DarkGray
+Idl*emc3_display*diff_base*foreground:	DarkBlue
+
+Idl*emc3_display*case_info*background:	DarkBlue
+Idl*emc3_display*case_info*foreground:	LightBlue
+
+Idl*emc3_display*warning*background:	Red
+Idl*emc3_display*warning*foreground:	Yellow
+Idl*emc3_display*loaded*background:	DarkGreen
+Idl*emc3_display*loaded*foreground:	LightGreen
+Idl*emc3_display*Green*background:	DarkGreen
+Idl*emc3_display*Green*foreground:	LightGreen
+Idl*emc3_display*LGreen*background:	LightGreen
+Idl*emc3_display*LGreen*foreground:	DarkGreen
+
+Idl*emc3_display*ct_button*background:	Yellow
+Idl*emc3_display*ct_button*foreground:	Black
+
+Idl*emc3_display*quit*background:	DarkRed
+Idl*emc3_display*quit*foreground:	White
