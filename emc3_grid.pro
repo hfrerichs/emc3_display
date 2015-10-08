@@ -389,7 +389,7 @@ pro read_psin_data, grid_dir, iflag
 	iflag		= -1
         psin		= make_array (grid_p_os(nzonet), /fl)
 ; test if data file exists
-	data_file	= grid_dir+'/'+geometry_dir+'/'+'psi.data'
+	data_file	= grid_dir+'/'+geometry_dir+'/'+psiN_file
 	if not file_test(data_file) then begin
 		print, 'psin data file not found: ', data_file
 		return

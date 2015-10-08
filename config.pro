@@ -5,6 +5,7 @@ pro load_config, EMC3_DISPLAY_DIR
 		sim_dir, $
 		geometry_dir, emc3_dir, eirene_dir, postproc_dir, diag_dir, $
 		grid_info_file, grid_data_file, mag_axis_data_file, physical_cell_data_file, $
+		psiN_file, $
 		case_info_file, note_file, run_exec_dir, $
 		fl_profiles_file, $
 ; runtime variables (set during run selection)
@@ -29,6 +30,7 @@ pro load_config, EMC3_DISPLAY_DIR
 	grid_data_file		= getenv('grid_data_file')
 	mag_axis_data_file	= 'mag_axis.dat'
 	physical_cell_data_file	= getenv('physical_cell_data_file')
+	psiN_file		= getenv('psiN_file')
 	case_info_file		= getenv('case_info_file')
 	note_file		= 'notes.txt'
 	run_exec_dir		= getenv('run_exec_dir')

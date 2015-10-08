@@ -20,6 +20,10 @@ PHYSICAL_CELL_DATA_FILE=$(whiptail --title "Plasma and neutral gas cells" --inpu
 if [ $? = 1 ]; then exit; fi
 
 
+PSIN_FILE=$(whiptail --title "Poloidal magnetic flux" --inputbox "What is the filename for the (normalized) poloidal magnetic flux?" 10 60 psiN.dat 3>&1 1>&2 2>&3)
+if [ $? = 1 ]; then exit; fi
+
+
 RUN_EXEC_DIR=$(whiptail --title "Simulation run directory" --inputbox "What is the name of directory used for simulation runs (in MACHINE/CONFIGURATION/CASE)? This directory will contain the input files for each case." 10 60 run 3>&1 1>&2 2>&3)
 if [ $? = 1 ]; then exit; fi
 
@@ -48,6 +52,7 @@ echo "export geometry_dir=$GEOMETRY_DIR"			>> config
 echo "export grid_info_file=$GRID_INFO_FILE"			>> config
 echo "export grid_data_file=$GRID_DATA_FILE"			>> config
 echo "export physical_cell_data_file=$PHYSICAL_CELL_DATA_FILE"	>> config
+echo "export psiN_file=$PSIN_FILE"				>> config
 echo "export run_exec_dir=$RUN_EXEC_DIR"			>> config
 echo "export case_info_dir=$CASE_INFO_DIR"			>> config
 echo "export emc3_output_dir=$EMC3_OUTPUT_DIR"			>> config
