@@ -212,7 +212,9 @@ pro generate_new_1D_profile
 	if save_file ne '' then begin
 		machine		= get_selected_machine()
 		shot		= get_selected_shot()
-		file_base	= sim_dir+'/'+machine+'/'+shot+'/'+geometry_dir+'/1D_plots/'+save_file
+		dir		= sim_dir+'/'+machine+'/'+shot+'/'+geometry_dir+'/1D_plots'
+		if ~ file_test(dir, /directory) then file_mkdir, dir
+		file_base	= dir+'/'+save_file
 		data_file	= file_base+'.dat'
 		openw, lun, data_file, /get_lun
 		printf, lun, coords_1D[0:i_coord-1], format='(f10.5,4i6,3f10.5,8i8)'
