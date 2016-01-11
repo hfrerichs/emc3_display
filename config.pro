@@ -31,7 +31,8 @@ pro load_config, EMC3_DISPLAY_DIR
 	mag_axis_data_file	= 'mag_axis.dat'
 	physical_cell_data_file	= getenv('physical_cell_data_file')
 	psiN_file		= getenv('psiN_file')
-	case_info_file		= getenv('case_info_file')
+	;case_info_file		= getenv('case_info_file')
+	case_info_file		= 'input.par'
 	note_file		= 'notes.txt'
 	run_exec_dir		= getenv('run_exec_dir')
 	fl_profiles_file	= 'PARALLEL_PLOTTING.txt'
