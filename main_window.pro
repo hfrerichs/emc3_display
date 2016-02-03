@@ -351,11 +351,12 @@ function make_depo_base, top_base
 	endfor
 
 	; select limiter
-	lim_base	= widget_base(tab, row=3, title='select limiter', /grid_layout)
+	lim_base	= widget_base(tab, row=3, title='select output', /grid_layout)
 	lim_label	= widget_label(lim_base, value='limiter: ')
 	empty_str	= ''
 	lim_select	= widget_droplist(lim_base, value=empty_str, uname='lim_select_id', scr_xsize=480)
 
+	; select profiles
 	lx_profile	= widget_label(lim_base, value='Select x-profile at y =')
 	ex_profile	= widget_text(lim_base, value='', /editable, uname='target_xid')
 	ly_profile	= widget_label(lim_base, value='Select y-profile at x =')

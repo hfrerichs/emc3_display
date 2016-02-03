@@ -358,8 +358,10 @@ pro plot_target_data, data_id, limiter=limiter
 	nd	= (LIM_NTOR[LIMI]-1)*(LIM_NPOL[LIMI]-1)*LIM_SUBRES_NTOR*LIM_SUBRES_NPOL
 	xm	= make_array(nd, /fl)
 	ym	= make_array(nd, /fl)
-	avx	= make_array((LIM_NPOL[LIMI]-1)*LIM_SUBRES_NPOL, 2, /fl)
+	avx	= make_array((LIM_NPOL[LIMI]-1)*LIM_SUBRES_NPOL, 3, /fl)
 	avx(*)	= 0.0
+	nav	= make_array((LIM_NPOL[LIMI]-1)*LIM_SUBRES_NPOL, /int)
+	nav(*)	= 0L
 	i	= 0L
 	ierr_sum	= 0
 	IntV	= 0.0
@@ -477,9 +479,15 @@ pro plot_target_data, data_id, limiter=limiter
 			ym(i)	= total(larr)/4
 			iy = ipol*LIM_SUBRES_NPOL + subipol
 			avx(iy, 0) = ym(i)
-			avx(iy, 1) = avx(iy, 1) + Val / LIM_SUBRES_NTOR / (LIM_NTOR[LIMI]-1)
-			i	= i+1
+			nav(iy)	= nav(iy)+1
+			delta	= Val - avx(iy, 1)
+			; mean
+			;avx(iy, 1) = avx(iy, 1) + Val / LIM_SUBRES_NTOR / (LIM_NTOR[LIMI]-1)
+			avx(iy, 1) = avx(iy, 1) + delta / nav(iy)
+			; variance
+			avx(iy, 2) = avx(iy, 2) + delta * (Val - avx(iy, 1))
 
+			i	= i+1
 			znnn	= round((n_levels-1) * (Val-minVal) / (maxVal-minVal))
 			if (Val ge maxVal) then znnn = n_levels
 			if (Val le minVal) then znnn = 1
@@ -489,7 +497,7 @@ pro plot_target_data, data_id, limiter=limiter
                 if ((yprof gt -1000) and (parr(2) gt yprof) and (parr(0) le yprof)) then begin
                         znnn = 255
                         ;printf, lunY, (L1+L2)/2, Val
-                        printf, lunY, (L(0)+L(1))/2, Val
+                        printf, lunY, (larr(0)+larr(1))/2, Val
                 endif
                 ;if ((xprof gt -1000) and (L3 gt xprof) and (L1 le xprof)) then begin
                 if ((xprof gt -1000) and (Larr(2) gt xprof) and (Larr(0) le xprof)) then begin
@@ -516,11 +524,13 @@ pro plot_target_data, data_id, limiter=limiter
 
 	overlay_data, poly_test
 
-;	openw, lunAv, 'av_target.txt', /get_lun
-;	for ipol=0L,(LIM_NPOL[LIMI]-1)*LIM_SUBRES_NPOL-1 do begin
-;		printf, lunAv, avx(ipol,0), avx(ipol,1)
-;	endfor
-;	free_lun, lunAv
+	avx(*,2) = avx(*,2) / nav
+	openw, lunAv, 'av_target.txt', /get_lun
+	for ipol=0L,(LIM_NPOL[LIMI]-1)*LIM_SUBRES_NPOL-1 do begin
+		std = sqrt(avx(ipol, 2))
+		printf, lunAv, avx(ipol,0), avx(ipol,1), std
+	endfor
+	free_lun, lunAv
 
 ;	np	= (size(poly_test, /dimensions))[1]
 ;	px	= make_array(np, /fl)
