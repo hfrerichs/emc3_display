@@ -525,12 +525,12 @@ pro plot_target_data, data_id, limiter=limiter
 	overlay_data, poly_test
 
 	avx(*,2) = avx(*,2) / nav
-	openw, lunAv, 'av_target.txt', /get_lun
-	for ipol=0L,(LIM_NPOL[LIMI]-1)*LIM_SUBRES_NPOL-1 do begin
-		std = sqrt(avx(ipol, 2))
-		printf, lunAv, avx(ipol,0), avx(ipol,1), std
-	endfor
-	free_lun, lunAv
+;	openw, lunAv, 'av_target.txt', /get_lun
+;	for ipol=0L,(LIM_NPOL[LIMI]-1)*LIM_SUBRES_NPOL-1 do begin
+;		std = sqrt(avx(ipol, 2))
+;		printf, lunAv, avx(ipol,0), avx(ipol,1), std
+;	endfor
+;	free_lun, lunAv
 
 ;	np	= (size(poly_test, /dimensions))[1]
 ;	px	= make_array(np, /fl)
